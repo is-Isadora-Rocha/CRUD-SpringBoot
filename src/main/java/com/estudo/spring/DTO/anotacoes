@@ -1,0 +1,8 @@
+O QUE É O DTO?
+Classe Java que tranforma o JSON em Objeto.
+DTO espelho da entidade de usuario
+DTO nao necessida de ID pois gera AUTOMATICAMENTE
+
+No UsuarioController @Postmapping (/salvar)
+substitiuir por um DTO
+log

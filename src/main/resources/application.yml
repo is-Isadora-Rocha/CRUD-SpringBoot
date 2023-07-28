@@ -1,10 +1,13 @@
-spring.jpa:
-  database: POSTGRESQL
-  show-sql: true
+server:
+    port: 8092
+    servlet:
+        context-path: /spring-estudo
 
-spring.datasource:
-  platform: postgres
-  driverClassName: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/estudoCrud
-  username: postgres
-  password: 123456
+
+spring:
+  datasource:
+    password: 123456
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/crud_estudo
+  jpa:
+    show-sql: true
