@@ -22,20 +22,20 @@ public class UsuarioController {
 
     @PostMapping("/salvar")
     public ResponseEntity<?> cadastrar(@RequestBody UsuarioDTO user){
-        /*No paramêtro foi trocado UsuarioModel pelo UsuarioDTO, pois altera o processo de comunicação
-        * já que no DTO pode ser "escolhido" quais informações pode-se passar para o front-end
-        * EX: Não quero que o front-end veja a senha do usuário, então eu monto o DTO
-        * para que a senha seja 'null' */
             usuarioService.cadastrar(converterDTO(user));
             return new ResponseEntity(user, HttpStatus.CREATED);
     }
+    /*No paramêtro foi trocado UsuarioModel por UsuarioDTO, pois altera o processo de comunicação
+     * já que no DTO pode ser "escolhido" quais informações pode-se passar para o front-end
+     * EX: Não quero que o front-end veja a senha do usuário, então eu monto o DTO
+     * para que a senha seja 'null' */
 
     @GetMapping("/buscar")
     public ResponseEntity<?> buscarUsuarios(@RequestBody UsuarioDTO user){
-//        List <UsuarioDTO> usuarios = usuarioService.listarUsuarios(converterDTO(user));
-//        return new ResponseEntity(usuarios, HttpStatus.CREATED);
         return new ResponseEntity(usuarioService.listarUsuarios(converterDTO(user)), HttpStatus.CREATED);
     }
+    /*    List <UsuarioDTO> usuarios = usuarioService.listarUsuarios(converterDTO(user));
+          return new ResponseEntity(usuarios, HttpStatus.CREATED); */
 
     public UsuarioModel converterDTO (UsuarioDTO usuario){
         return UsuarioModel.builder()
